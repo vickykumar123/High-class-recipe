@@ -5,6 +5,11 @@ import { getMeals } from "@/lib/getMeals";
 import { Suspense } from "react";
 import { revalidatePath } from "next/cache";
 
+export const metadata = {
+  title: "All Meals",
+  description: "Delicious meals.",
+};
+
 async function MealLoading() {
   const meals = await getMeals();
   revalidatePath("/meals", "layout");
