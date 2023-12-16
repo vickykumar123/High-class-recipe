@@ -1,5 +1,7 @@
 const sql = require("better-sqlite3");
-const db = sql("meals.db");
+const path = require("path");
+const dbPath = path.join(process.cwd(), "meals.db");
+const db = sql(dbPath);
 
 const dummyMeals = [
   {
