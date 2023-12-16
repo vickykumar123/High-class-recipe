@@ -3,9 +3,11 @@ import style from "./page.module.css";
 import MealGrid from "@/components/meals/MealGrid";
 import { getMeals } from "@/lib/getMeals";
 import { Suspense } from "react";
+import { revalidatePath } from "next/cache";
 
 async function MealLoading() {
   const meals = await getMeals();
+  revalidatePath("/meals", "layout");
   return <MealGrid meals={meals} />;
 }
 

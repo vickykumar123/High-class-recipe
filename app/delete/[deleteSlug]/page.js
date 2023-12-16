@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import style from "./page.module.css";
 import { deleteMeal, getMeal } from "@/lib/getMeals";
 import Image from "next/image";
@@ -10,12 +11,16 @@ export default function Delete({ params }) {
     notFound();
   }
   deleteMeal(params.deleteSlug);
-
+  revalidatePath("/meals", "layout");
   return (
     <div>
       <header className={style.header}>
         <div className={style.image}>
-          <Image src={meal.image} alt={meal.title} fill />
+          <Image
+            src={`https://highclass-food-nextjs-project.s3.ap-south-1.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          />
         </div>
         <h2 className={style.delete}>
           Successfully Deleted the meal -- {params.deleteSlug}
@@ -23,7 +28,9 @@ export default function Delete({ params }) {
       </header>
 
       <p className={style.cta}>
-        <Link href="/meals/share">Go back to all Mealse</Link>
+        <Link href="/meals" replace>
+          Go back to all Meals
+        </Link>
       </p>
     </div>
   );
