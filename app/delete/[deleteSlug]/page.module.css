@@ -1,0 +1,49 @@
+.delete {
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 2rem;
+  /* margin: 0px; */
+  font-weight: 600;
+  color: #262626;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #f9572a, #ff5805);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: cover;
+  background-position: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  display: flex;
+  padding: 2rem 1rem;
+  gap: 3rem;
+  margin: auto;
+  max-width: 80rem;
+  text-align: center;
+}
+
+.image {
+  position: relative;
+  width: 30rem;
+  height: 20rem;
+}
+
+.header img {
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  animation: fade-slide-in-from-left 1s ease-out forwards;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #f9572a, #ff9b05);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
